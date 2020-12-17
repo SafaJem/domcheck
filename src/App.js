@@ -1,35 +1,17 @@
-import React from "react";
+import React,{useState} from 'react';
+
 import './App.css';
-import Personne from "./Personne";
+import Addtodo from './Addtodo';
+import TodoList from './todoList';
 
-class App extends React.Component {
-  constructor() {
-    console.log("constructor()");
-    super();
-    this.state = {
-     
-      show:false,
-    }
-    };
- 
-  Show = () => {
-    this.setState({
-      show: !this.state.show
-    });
-  };
-  
-  render() {
-
+function App() {
+  const [todos,setTodos]=useState(["safa","islem"])
   return (
     <div className="App">
-     <hr />
-      <button className="visibility-btn" onClick={this.Show}>
-        {this.state.show ? "Hide profile " : "Show profile"}
-      </button>
-      {this.state.show && <Personne/>}
-   
+     <Addtodo/>
+     <TodoList todos=todos />
     </div>
   );
 }
-}
+
 export default App;
